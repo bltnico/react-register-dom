@@ -1,3 +1,8 @@
+# React register DOM
+
+A simple method to mount React Component inside your website.
+It's wrap `ReactDOM.render` and mount your Component only if his root element is in DOM ! Perfect for website that combines HTML or template engine with a few React Component.
+
 ## Usage
 
 ### Install from npm:
