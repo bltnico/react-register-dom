@@ -1,5 +1,9 @@
-## Examples
+## Usage
 
+### Install from npm:
+`npm i --save react-register-dom`
+
+### Integrate into your app:
 *index.html*
 ```html
 (...)
@@ -70,3 +74,5 @@ class HomeDropdown extends Component {
 
 register('root-homedropdown', r => r(<HomeDropdown />));
 ```
+
+**Pull request is welcomed ! :coffee:**
