@@ -9,8 +9,8 @@ export default function register(root = 'root', fn) {
   }
 
   const render = (rootElement => {
-    fn((Component) => {
-      return ReactDOM.render(Component, rootElement);
+    fn((component, callback = () => {}) => {
+      return ReactDOM.render(component, rootElement, callback);
     }, rootElement);
   });
 

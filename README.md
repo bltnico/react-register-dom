@@ -13,17 +13,17 @@
 
   <article>
     <h4>...</h4>
-    <span class="root-likebutton"></span>
+    <span class="root-likebutton" data-id="37"></span>
   </article>
 
   <article>
     <h4>...</h4>
-    <span class="root-likebutton"></span>
+    <span class="root-likebutton" data-id="38"></span>
   </article>
 
   <article>
     <h4>...</h4>
-    <span class="root-likebutton"></span>
+    <span class="root-likebutton" data-id="39"></span>
   </article>
 
 (...)
@@ -45,7 +45,10 @@ register('root-signup', (render, rootElement) => {
 
   // Do something with root element
   const referer = rootElement.dataset.referer;
-  render(<Signup referer={referer} />);
+  render(<Signup referer={referer} />, () => {
+    // Signup mounted or updated
+    (...)
+  });
 });
 
 const likeButtonHTMLCollection = document.getElementsByClassName('root-likebutton');
