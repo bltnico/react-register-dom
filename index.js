@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 
-export function register(root = 'root', fn) {
+export default function register(root = 'root', fn) {
   let rootElement;
   if (typeof root === 'string') {
     rootElement = document.getElementById(root);
