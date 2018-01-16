@@ -108,4 +108,14 @@ class UserProfil extends Component {
 registerComponent('UserProfil');
 ```
 
+#### Api
+```javascript
+register(root: string | HTMLCollection, fn: Function)
+```
+
+```javascript
+registerComponent(componentName: string)
+```
+
+----
 **Pull request is welcomed ! :coffee:**
