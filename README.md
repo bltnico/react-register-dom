@@ -80,4 +80,32 @@ class HomeDropdown extends Component {
 register('root-homedropdown', r => r(<HomeDropdown />));
 ```
 
+### WIP
+*index.html*
+
+```html
+(...)
+
+  <span
+    data-component="UserProfil"
+    data-props:id="56"
+    data-props:username="bltnico"
+    data-props:premium="false">
+  </span>
+
+(...)
+```
+
+*UserProfil.js*
+```javascript
+import React, { Component } from 'react';
+import { registerComponent } from 'react-register-dom';
+
+class UserProfil extends Component {
+  (...)
+}
+
+registerComponent('UserProfil');
+```
+
 **Pull request is welcomed ! :coffee:**
