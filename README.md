@@ -9,6 +9,9 @@ It's wrap `ReactDOM.render` and mount your Component only if his root element is
 `npm i --save react-register-dom`
 
 ### Integrate into your app:
+
+#### Javascript api
+
 *index.html*
 ```html
 (...)
@@ -79,10 +82,13 @@ class HomeDropdown extends Component {
 
 register('root-homedropdown', r => r(<HomeDropdown />));
 ```
-----
 
-### WIP
-*This is an experimental feature*  
+```javascript
+register(root: string | HTMLCollection, fn: Function)
+```
+
+#### With HTML data attribute
+
 *index.html*
 
 ```html
@@ -104,19 +110,19 @@ import React, { Component } from 'react';
 import { registerComponent } from 'react-register-dom';
 
 class UserProfil extends Component {
+
+  componentDidMount() {
+    const { id, username, premium } = this.props;
+  }
+
   (...)
 }
 
-registerComponent('UserProfil');
-```
-
-#### Api
-```javascript
-register(root: string | HTMLCollection, fn: Function)
+registerComponent('UserProfil', UserProfil);
 ```
 
 ```javascript
-registerComponent(componentName: string)
+registerComponent(componentName: string, component: React.ComponentType, callback?: Function)
 ```
 
 ----

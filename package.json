@@ -3,6 +3,17 @@
   "version": "1.1.2",
   "description": "",
   "main": "index.js",
+  "keywords": [
+    "react",
+    "react-dom",
+    "register",
+    "html",
+    "component"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bltnico/react-register-dom"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

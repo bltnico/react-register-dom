@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const COMPONENT_ATTR = 'data-component';
+const COMPONENT_ATTR = '[data-component]';
 const PROPS_DATASET = 'props:';
 
 export default function register(root = 'root', fn) {
@@ -28,30 +28,39 @@ export default function register(root = 'root', fn) {
   }
 };
 
-export function registerComponent(componentName, callback = () => {}) {
+export function registerComponent(componentName, component, callback = () => {}) {
   const components = document.querySelectorAll(COMPONENT_ATTR);
   if (components && components.length > 0) {
-    const rootElement = components.find(component => component.dataset.component === componentName);
-    if (rootElement) {
-      const dataset = Object.assign({}, rootElement.dataset);
-      const datasetProps = dataset.filter(attr => attr.startsWith(PROPS_DATASET));
-      let props = {};
-      Object.keys(datasetProps).map(key => {
-        const propName = key.split(':')[1] || null;
-        const propValue = dataset[key];
-        props = {
-          ...props,
-          [propName]: propValue,
-        };
-      });
+    return false;
+  }
 
-      register(rootElement, render => {
-        render(React.createElement(
-          componentName,
-          props,
-          null,
-        ), callback);
-      });
-    }
+  const rootElements = [...components].filter(component => component.dataset.component === componentName);
+  const registerComponentWithProps = rootElement => {
+    const dataset = Object.assign({}, rootElement.dataset);
+    const datasetProps = Object.keys(dataset).filter(attr => attr.startsWith(PROPS_DATASET));
+
+    let props = {};
+    datasetProps.map(key => {
+      const propName = key.split(':')[1] || null;
+      const propValue = dataset[key];
+      props = {
+        ...props,
+        [propName]: propValue,
+      };
+    });
+
+    register(rootElement, render => {
+      render(React.createElement(
+        component,
+        props,
+        null,
+      ), callback);
+    });
+  };
+
+  if (rootElements.length === 1) {
+    return registerComponentWithProps(rootElements[0]);
+  } else {
+    return rootElements.map(registerComponentWithProps);
   }
 };
