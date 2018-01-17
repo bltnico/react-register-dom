@@ -12,6 +12,10 @@ It's wrap `ReactDOM.render` and mount your Component only if his root element is
 
 #### Javascript api
 
+```javascript
+register(root: string | HTMLCollection, fn: Function)
+```
+
 *index.html*
 ```html
 (...)
@@ -83,11 +87,11 @@ class HomeDropdown extends Component {
 register('root-homedropdown', r => r(<HomeDropdown />));
 ```
 
-```javascript
-register(root: string | HTMLCollection, fn: Function)
-```
-
 #### With HTML data attribute
+
+```javascript
+registerComponent(componentName: string, component: React.ComponentType, callback?: Function)
+```
 
 *index.html*
 
@@ -119,10 +123,6 @@ class UserProfil extends Component {
 }
 
 registerComponent('UserProfil', UserProfil);
-```
-
-```javascript
-registerComponent(componentName: string, component: React.ComponentType, callback?: Function)
 ```
 
 ----
