@@ -31,7 +31,7 @@ export default function register(root = 'root', fn) {
 export function registerComponent(componentName, callback = () => {}) {
   const components = document.querySelectorAll(COMPONENT_ATTR);
   if (components && components.length > 0) {
-    const rootElement = components.filter(component => component == componentName)[0];
+    const rootElement = components.find(component => component.dataset.component === componentName);
     if (rootElement) {
       const dataset = Object.assign({}, rootElement.dataset);
       const datasetProps = dataset.filter(attr => attr.startsWith(PROPS_DATASET));

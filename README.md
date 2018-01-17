@@ -79,8 +79,10 @@ class HomeDropdown extends Component {
 
 register('root-homedropdown', r => r(<HomeDropdown />));
 ```
+----
 
 ### WIP
+*This is an experimental feature*  
 *index.html*
 
 ```html
