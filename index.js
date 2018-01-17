@@ -30,7 +30,7 @@ export default function register(root = 'root', fn) {
 
 export function registerComponent(componentName, component, callback = () => {}) {
   const components = document.querySelectorAll(COMPONENT_ATTR);
-  if (components && components.length > 0) {
+  if (!components || components.length === 0) {
     return false;
   }
 
