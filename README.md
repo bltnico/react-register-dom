@@ -110,10 +110,18 @@ registerComponent(componentName: string, component: React.ComponentType, callbac
 
 *UserProfil.js*
 ```javascript
-import React, { Component } from 'react';
+// @flow
+
+import React, { PureComponent } from 'react';
 import { registerComponent } from 'react-register-dom';
 
-class UserProfil extends Component {
+type Props = {
+  id: string,
+  username: string,
+  premium: string,
+};
+
+class UserProfil extends PureComponent<Props> {
 
   componentDidMount() {
     const { id, username, premium } = this.props;
